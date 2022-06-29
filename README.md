@@ -1,4 +1,4 @@
-# Risc-V-
+# Risc-V
 Risc v single cycle
 
 
