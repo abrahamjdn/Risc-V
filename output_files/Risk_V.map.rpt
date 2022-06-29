@@ -1,0 +1,571 @@
+Analysis & Synthesis report for Risk_V
+Wed Aug 19 10:15:07 2020
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Parameter Settings for User Entity Instance: sign_ext:sign_ext
+ 10. Parameter Settings for User Entity Instance: Control_Unit:Control_Unit
+ 11. Port Connectivity Checks: "ADD_PC_IMM:ADD_PC_IMM"
+ 12. Port Connectivity Checks: "Control_Unit:Control_Unit"
+ 13. Port Connectivity Checks: "memory:memory"
+ 14. Port Connectivity Checks: "Instruction_Mem:Instruction_Mem"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Aug 19 10:15:07 2020       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; Risk_V                                      ;
+; Top-level Entity Name              ; Top_Module                                  ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 3                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F23C7      ;                    ;
+; Top-level entity name                                            ; Top_Module         ; Risk_V             ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; 12                 ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                    ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                      ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------+---------+
+; PC.v                             ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/PC.v                    ;         ;
+; Instruction_Mem.v                ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Instruction_Mem.v       ;         ;
+; register_file.v                  ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/register_file.v         ;         ;
+; sign_ext.v                       ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/sign_ext.v              ;         ;
+; Alu_Control.v                    ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Alu_Control.v           ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/ALU.v                   ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/memory.v                ;         ;
+; Mux_ALU.v                        ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Mux_ALU.v               ;         ;
+; Mux_Mem_Alu.v                    ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Mux_Mem_Alu.v           ;         ;
+; Mux_inst.v                       ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Mux_inst.v              ;         ;
+; Control_Unit.v                   ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Control_Unit.v          ;         ;
+; ADD_4.v                          ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/ADD_4.v                 ;         ;
+; Top_Module.v                     ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Top_Module.v            ;         ;
+; Width_Word_IL.v                  ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Width_Word_IL.v         ;         ;
+; Width_Word_S.v                   ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Width_Word_S.v          ;         ;
+; ADD_PC_IMM.v                     ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/ADD_PC_IMM.v            ;         ;
+; Jump_Ctr.v                       ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Jump_Ctr.v              ;         ;
+; conmutador.v                     ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/conmutador.v            ;         ;
+; Mux_Next_pc.v                    ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Mux_Next_pc.v           ;         ;
+; Mux_conmutador_muxMem.v          ; yes             ; User Verilog HDL File  ; C:/quartus/riiiisc/RISK_V/Mux_conmutador_muxMem.v ;         ;
+; inst_mem.txt                     ; yes             ; Auto-Found File        ; C:/quartus/riiiisc/RISK_V/inst_mem.txt            ;         ;
+; rommeminit.txt                   ; yes             ; Auto-Found File        ; C:/quartus/riiiisc/RISK_V/rommeminit.txt          ;         ;
+; reg_init.txt                     ; yes             ; Auto-Found File        ; C:/quartus/riiiisc/RISK_V/reg_init.txt            ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 3     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; i_Clk ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 3     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |Top_Module                ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |Top_Module         ; Top_Module  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sign_ext:sign_ext ;
++----------------+---------+-------------------------------------+
+; Parameter Name ; Value   ; Type                                ;
++----------------+---------+-------------------------------------+
+; Type_U         ; 0110111 ; Unsigned Binary                     ;
+; Type_J         ; 1101111 ; Unsigned Binary                     ;
+; Type_B         ; 1100011 ; Unsigned Binary                     ;
+; Type_Ijalr     ; 1100111 ; Unsigned Binary                     ;
+; Type_I_l       ; 0000011 ; Unsigned Binary                     ;
+; Type_S         ; 0100011 ; Unsigned Binary                     ;
+; Type_I         ; 0010011 ; Unsigned Binary                     ;
++----------------+---------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Control_Unit:Control_Unit ;
++----------------+---------+---------------------------------------------+
+; Parameter Name ; Value   ; Type                                        ;
++----------------+---------+---------------------------------------------+
+; Type_U         ; 0110111 ; Unsigned Binary                             ;
+; Type_J         ; 1101111 ; Unsigned Binary                             ;
+; Type_B         ; 1100011 ; Unsigned Binary                             ;
+; Type_Ijalr     ; 1100111 ; Unsigned Binary                             ;
+; Type_I_l       ; 0000011 ; Unsigned Binary                             ;
+; Type_S         ; 0100011 ; Unsigned Binary                             ;
+; Type_I         ; 0010011 ; Unsigned Binary                             ;
+; Type_R         ; 0110011 ; Unsigned Binary                             ;
++----------------+---------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "ADD_PC_IMM:ADD_PC_IMM" ;
++------------+-------+----------+-------------------+
+; Port       ; Type  ; Severity ; Details           ;
++------------+-------+----------+-------------------+
+; iv_IMM[31] ; Input ; Info     ; Stuck at GND      ;
++------------+-------+----------+-------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Control_Unit:Control_Unit"                                                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Funct3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; LUIsrc ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory:memory"                                                                                                                                                                           ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; iv_Address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (10 bits) it drives.  The 22 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Instruction_Mem:Instruction_Mem"                                                                                                                                                         ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; iv_Address ; Input ; Warning  ; Input port expression (30 bits) is wider than the input port (11 bits) it drives.  The 19 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 3                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Wed Aug 19 10:14:56 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Risk_V -c Risk_V
+Info (20032): Parallel compilation is enabled and will use up to 12 processors
+Info (12021): Found 1 design units, including 1 entities, in source file pc.v
+    Info (12023): Found entity 1: PC File: C:/quartus/riiiisc/RISK_V/PC.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_mem.v
+    Info (12023): Found entity 1: Instruction_Mem File: C:/quartus/riiiisc/RISK_V/Instruction_Mem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file register_file.v
+    Info (12023): Found entity 1: register_file File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sign_ext.v
+    Info (12023): Found entity 1: sign_ext File: C:/quartus/riiiisc/RISK_V/sign_ext.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_control.v
+    Info (12023): Found entity 1: Alu_Control File: C:/quartus/riiiisc/RISK_V/Alu_Control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU File: C:/quartus/riiiisc/RISK_V/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memory.v
+    Info (12023): Found entity 1: memory File: C:/quartus/riiiisc/RISK_V/memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_alu.v
+    Info (12023): Found entity 1: Mux_ALU File: C:/quartus/riiiisc/RISK_V/Mux_ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_mem_alu.v
+    Info (12023): Found entity 1: Mux_Mem_Alu File: C:/quartus/riiiisc/RISK_V/Mux_Mem_Alu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pc_bench.v
+    Info (12023): Found entity 1: PC_Bench File: C:/quartus/riiiisc/RISK_V/PC_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_mem_bench.v
+    Info (12023): Found entity 1: Instruction_Mem_Bench File: C:/quartus/riiiisc/RISK_V/Instruction_Mem_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_inst.v
+    Info (12023): Found entity 1: Mux_inst File: C:/quartus/riiiisc/RISK_V/Mux_inst.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_bench.v
+    Info (12023): Found entity 1: Mux_Bench File: C:/quartus/riiiisc/RISK_V/Mux_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file register_file_bench.v
+    Info (12023): Found entity 1: register_file_Bench File: C:/quartus/riiiisc/RISK_V/register_file_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sign_ext_bench.v
+    Info (12023): Found entity 1: sign_ext_Bench File: C:/quartus/riiiisc/RISK_V/sign_ext_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_control_bench.v
+    Info (12023): Found entity 1: Alu_Control_Bench File: C:/quartus/riiiisc/RISK_V/Alu_Control_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control_unit.v
+    Info (12023): Found entity 1: Control_Unit File: C:/quartus/riiiisc/RISK_V/Control_Unit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_4.v
+    Info (12023): Found entity 1: ADD_4 File: C:/quartus/riiiisc/RISK_V/ADD_4.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_4_bench.v
+    Info (12023): Found entity 1: ADD_4_Bench File: C:/quartus/riiiisc/RISK_V/ADD_4_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_imm.v
+    Info (12023): Found entity 1: ADD_imm File: C:/quartus/riiiisc/RISK_V/ADD_imm.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_imm_bench.v
+    Info (12023): Found entity 1: ADD_imm_Bench File: C:/quartus/riiiisc/RISK_V/ADD_imm_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_dir.v
+    Info (12023): Found entity 1: Mux_Dir File: C:/quartus/riiiisc/RISK_V/Mux_Dir.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file top_module.v
+    Info (12023): Found entity 1: Top_Module File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file top_module_bench.v
+    Info (12023): Found entity 1: Top_Module_Bench File: C:/quartus/riiiisc/RISK_V/Top_Module_Bench.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file width_word_il.v
+    Info (12023): Found entity 1: Width_Word_IL File: C:/quartus/riiiisc/RISK_V/Width_Word_IL.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file width_word_s.v
+    Info (12023): Found entity 1: Width_Word_S File: C:/quartus/riiiisc/RISK_V/Width_Word_S.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_pc_imm.v
+    Info (12023): Found entity 1: ADD_PC_IMM File: C:/quartus/riiiisc/RISK_V/ADD_PC_IMM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file jump_ctr.v
+    Info (12023): Found entity 1: Jump_Ctr File: C:/quartus/riiiisc/RISK_V/Jump_Ctr.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file conmutador.v
+    Info (12023): Found entity 1: conmutador File: C:/quartus/riiiisc/RISK_V/conmutador.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_next_pc.v
+    Info (12023): Found entity 1: Mux_Next_pc File: C:/quartus/riiiisc/RISK_V/Mux_Next_pc.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_conmutador_muxmem.v
+    Info (12023): Found entity 1: Mux_conmutador_muxMem File: C:/quartus/riiiisc/RISK_V/Mux_conmutador_muxMem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bench_jump_ctr.v
+    Info (12023): Found entity 1: Bench_Jump_Ctr File: C:/quartus/riiiisc/RISK_V/Bench_Jump_Ctr.v Line: 1
+Info (12127): Elaborating entity "Top_Module" for the top level hierarchy
+Info (12128): Elaborating entity "ADD_4" for hierarchy "ADD_4:ADD_4" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 53
+Info (12128): Elaborating entity "PC" for hierarchy "PC:PC" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 65
+Info (12128): Elaborating entity "Instruction_Mem" for hierarchy "Instruction_Mem:Instruction_Mem" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 73
+Warning (10030): Net "rv_Mem.data_a" at Instruction_Mem.v(9) has no driver or initial value, using a default initial value '0' File: C:/quartus/riiiisc/RISK_V/Instruction_Mem.v Line: 9
+Warning (10030): Net "rv_Mem.waddr_a" at Instruction_Mem.v(9) has no driver or initial value, using a default initial value '0' File: C:/quartus/riiiisc/RISK_V/Instruction_Mem.v Line: 9
+Warning (10030): Net "rv_Mem.we_a" at Instruction_Mem.v(9) has no driver or initial value, using a default initial value '0' File: C:/quartus/riiiisc/RISK_V/Instruction_Mem.v Line: 9
+Info (12128): Elaborating entity "Mux_inst" for hierarchy "Mux_inst:Mux_inst" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 83
+Info (12128): Elaborating entity "register_file" for hierarchy "register_file:register_file" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 101
+Warning (10235): Verilog HDL Always Construct warning at register_file.v(24): variable "i_Enb" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 24
+Warning (10235): Verilog HDL Always Construct warning at register_file.v(31): variable "ov_Data_R1" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 31
+Warning (10235): Verilog HDL Always Construct warning at register_file.v(32): variable "ov_Data_R2" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 32
+Warning (10240): Verilog HDL Always Construct warning at register_file.v(22): inferring latch(es) for variable "ov_Data_R1", which holds its previous value in one or more paths through the always construct File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Warning (10240): Verilog HDL Always Construct warning at register_file.v(22): inferring latch(es) for variable "ov_Data_R2", which holds its previous value in one or more paths through the always construct File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[0]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[1]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[2]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[3]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[4]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[5]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[6]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[7]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[8]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[9]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[10]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[11]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[12]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[13]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[14]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[15]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[16]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[17]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[18]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[19]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[20]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[21]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[22]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[23]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[24]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[25]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[26]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[27]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[28]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[29]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[30]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R2[31]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[0]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[1]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[2]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[3]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[4]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[5]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[6]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[7]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[8]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[9]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[10]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[11]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[12]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[13]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[14]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[15]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[16]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[17]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[18]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[19]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[20]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[21]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[22]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[23]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[24]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[25]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[26]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[27]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[28]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[29]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[30]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (10041): Inferred latch for "ov_Data_R1[31]" at register_file.v(22) File: C:/quartus/riiiisc/RISK_V/register_file.v Line: 22
+Info (12128): Elaborating entity "sign_ext" for hierarchy "sign_ext:sign_ext" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 110
+Info (12128): Elaborating entity "Mux_ALU" for hierarchy "Mux_ALU:Mux_ALU" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 120
+Info (12128): Elaborating entity "Alu_Control" for hierarchy "Alu_Control:Alu_Control" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 133
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 145
+Warning (10764): Verilog HDL warning at ALU.v(23): converting signed shift amount to unsigned File: C:/quartus/riiiisc/RISK_V/ALU.v Line: 23
+Info (12128): Elaborating entity "memory" for hierarchy "memory:memory" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 157
+Warning (10235): Verilog HDL Always Construct warning at memory.v(21): variable "iWE" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/memory.v Line: 21
+Warning (10235): Verilog HDL Always Construct warning at memory.v(23): variable "iv_Data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/memory.v Line: 23
+Warning (10235): Verilog HDL Always Construct warning at memory.v(23): variable "iv_Address" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/memory.v Line: 23
+Warning (10235): Verilog HDL Always Construct warning at memory.v(25): variable "i_R" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/memory.v Line: 25
+Warning (10235): Verilog HDL Always Construct warning at memory.v(27): variable "iv_Address" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/memory.v Line: 27
+Warning (10235): Verilog HDL Always Construct warning at memory.v(31): variable "rv_Data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/quartus/riiiisc/RISK_V/memory.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at memory.v(19): inferring latch(es) for variable "rv_Data", which holds its previous value in one or more paths through the always construct File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[0]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[1]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[2]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[3]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[4]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[5]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[6]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[7]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[8]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[9]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[10]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[11]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[12]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[13]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[14]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[15]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[16]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[17]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[18]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[19]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[20]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[21]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[22]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[23]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[24]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[25]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[26]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[27]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[28]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[29]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[30]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (10041): Inferred latch for "rv_Data[31]" at memory.v(19) File: C:/quartus/riiiisc/RISK_V/memory.v Line: 19
+Info (12128): Elaborating entity "Mux_Mem_Alu" for hierarchy "Mux_Mem_Alu:Mux_Mem_Alu" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 168
+Info (12128): Elaborating entity "Control_Unit" for hierarchy "Control_Unit:Control_Unit" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 189
+Info (12128): Elaborating entity "Width_Word_IL" for hierarchy "Width_Word_IL:Width_Word_IL" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 200
+Info (12128): Elaborating entity "Width_Word_S" for hierarchy "Width_Word_S:Width_Word_S" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 210
+Info (12128): Elaborating entity "ADD_PC_IMM" for hierarchy "ADD_PC_IMM:ADD_PC_IMM" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 220
+Info (12128): Elaborating entity "Jump_Ctr" for hierarchy "Jump_Ctr:Jump_Ctr" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 233
+Info (12128): Elaborating entity "conmutador" for hierarchy "conmutador:conmutador" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 245
+Info (12128): Elaborating entity "Mux_Next_pc" for hierarchy "Mux_Next_pc:Mux_Next_pc" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 255
+Info (12128): Elaborating entity "Mux_conmutador_muxMem" for hierarchy "Mux_conmutador_muxMem:Mux_conmutador_muxMem" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 265
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i_Clk" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 2
+    Warning (15610): No output dependent on input pin "i_Rst" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 3
+    Warning (15610): No output dependent on input pin "i_Enb" File: C:/quartus/riiiisc/RISK_V/Top_Module.v Line: 5
+Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 4736 megabytes
+    Info: Processing ended: Wed Aug 19 10:15:07 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:29
+
+

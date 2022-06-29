@@ -1,0 +1,30 @@
+module ALU(
+	input [31:0] iv_A,
+	input [31:0] iv_B,
+	input [4:0] iv_ALUop,
+	output o_zero_flag,
+	output reg [31:0] ov_result
+	
+);
+
+assign o_zero_flag = (result==0);
+
+
+always @*
+begin
+	case(iv_ALUop)
+		4'h2: ov_result <= iv_A + iv_B;  //add
+		4'h6: ov_result <= iv_A - iv_B;  //sub
+		4'h3: ov_result <= iv_A << iv_B; //sll
+		4'h4: ov_result <= ($signed(iv_A) < $signed(iv_B)) ? 1 : 0; //slt
+		4'h5: ov_result <= ($unsigned(iv_A) < $unsigned(iv_B)) ? 1 : 0; //sltu
+		4'h7: ov_result <= iv_A ^ iv_B; //xor
+		4'h8: ov_result <= $unsigned(iv_A) >> $unsigned(iv_B); //srl
+		4'h9: ov_result <= $signed(iv_A) >> $signed(iv_B); //sra
+		4'hA: ov_result <= iv_A | iv_B; //or
+		4'hB: ov_result <= iv_A & iv_B; //and
+		default: ov_result <= 0;
+	endcase
+end
+
+endmodule 

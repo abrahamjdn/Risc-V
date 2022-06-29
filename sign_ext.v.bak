@@ -1,0 +1,11 @@
+module sign_ext(
+	input i_Clk,
+	input i_Rst,
+	input i_Enb,
+	input [31:0] iv_Data,
+	output [31:0] ov_Data
+
+);
+
+
+endmodule 

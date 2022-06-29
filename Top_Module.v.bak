@@ -1,0 +1,207 @@
+module Top_Module(
+	input i_Clk,
+	input i_Rst,
+	input i_Enb
+);
+
+
+//---------------------Mux_Dir---------------------
+wire [31:0] ov_dir_mux;
+
+Mux_Dir Mux_Dir(
+	.iv_dir(ov_Dir),
+	.iv_dir_shift(ov_Dir_shift),
+	.i_selector(Branch & o_zero_flag),
+	.ov_dir(ov_dir_mux)
+);
+//---------------------Mux_Dir---------------------
+
+//---------------------ADD_imm---------------------
+wire [31:0] ov_Dir_shift;
+	
+ADD_imm ADD_imm(
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iv_Dir(ov_Dir),
+	.iv_imm(ov_Data_sign),
+	.ov_Dir_shift(ov_Dir_shift)
+);
+//---------------------ADD_imm---------------------
+
+//---------------------ADD_4---------------------
+wire [31:0] ov_Dir;
+	
+ADD_4 ADD_4(
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iv_Dir(ov_Data_PC),
+	.ov_Dir(ov_Dir)
+);
+//---------------------ADD_4---------------------
+
+//---------------------PC---------------------
+
+wire [31:0] ov_Data_PC;
+PC PC (
+	.i_Clk (i_Clk),
+	.i_Rst (i_Rst),
+	.i_Enb (i_Enb),
+	.iv_Data (iv_Data),
+	.ov_Data (ov_Data_PC)
+);
+//---------------------PC---------------------
+
+//---------------------Instruction_Mem---------------------
+wire [31:0] ov_Data;
+Instruction_Mem Instruction_Mem(
+    .i_Clk           (i_Clk),
+    .iv_Address  (ov_Data_PC[31:2]),
+    .ov_Data		  (ov_Data)
+);
+//---------------------Instruction_Mem---------------------
+
+//---------------------Mux_inst---------------------
+	wire [4:0] ov_reg_inst;
+
+Mux_inst Mux_inst(
+	.iv_reg_20_to_16 (ov_Data[24:20]),
+	.iv_reg_15_to_11 (ov_Data[15:11]),
+	.i_selector (Reg_Dst),
+	.ov_reg_inst (ov_reg_inst)
+//---------------------Mux_inst---------------------
+	
+//---------------------register_file---------------------	
+	wire [31:0] ov_Data_R1;
+	wire [31:0] ov_Data_R2;
+
+register_file register_file (
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iW_Enb(Reg_Write),
+	.iv_Read_R1(ov_Data[19:15]), //R = Register
+	.iv_Read_R2(ov_Data[24:20]),
+	.iv_Write_R(ov_reg_inst),
+	.iv_Write_Data(ov_reg_Mem),
+	.ov_Data_R1(ov_Data_R1),
+	.ov_Data_R2(ov_Data_R2)
+
+);
+//---------------------register_file---------------------
+
+//---------------------sign_ext---------------------
+	wire [31:0] ov_Data_sign;
+
+sign_ext sign_ext
+(
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iv_Data(ov_Data),
+	.ov_Data(ov_Data_sign)
+);
+//---------------------sign_ext---------------------
+
+//---------------------Mux_ALU---------------------
+	wire [31:0] ov_reg_imm;
+
+Mux_ALU Mux_ALU(
+	.iv_reg(ov_Data_R2),
+	.iv_imm(ov_Data_sign),
+	.i_selector(ALUsrc),
+	.ov_reg_imm(ov_reg_imm)
+);
+//---------------------Mux_ALU---------------------
+
+//---------------------Alu_Control---------------------
+	wire [4:0] ov_AluOp;
+	
+Alu_Control Alu_Control(
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iv_Alu_opcode(AluOp),  // Bits 6(),5(),4 y 2 del Opcode
+	.i_Bit_30(ov_Data[30]),				//Bit 30 de la instruccion
+	.iv_funct3(ov_Data[14:12]),  //Bits 14:12 de las instrucciones
+	.ov_AluOp (ov_AluOp)
+
+);
+//---------------------Alu_Control---------------------
+
+//---------------------ALU---------------------
+wire o_zero_flag;
+wire[31:0] ov_result;
+ALU ALU(
+	.iv_A(ov_Data_R1),
+	.iv_B(ov_reg_imm),
+	.iv_ALUop(ov_AluOp),
+	.o_zero_flag(o_zero_flag),
+	.ov_result(ov_result)
+	
+);
+//---------------------ALU---------------------
+
+//---------------------memory---------------------
+wire[31:0]	 ov_Data_mem;
+
+memory memory (
+    .i_Clk(i_Clk),
+    .iv_Address(ov_result),
+	 .i_R(Mem_Read),
+    .iWE(Mem_Write),
+    .iv_Data(ov_Data_R2),
+    .ov_Data(ov_Data_mem)
+);
+//---------------------memory---------------------
+
+//---------------------Mux_Mem_Alu--------------------
+wire [31:0] ov_reg_Mem;
+	
+Mux_Mem_Alu Mux_Mem_Alu(
+	.iv_Mem(ov_Data_mem),
+	.iv_Reg(ov_result),
+	.i_selector(Mem_To_Reg),
+	.ov_reg_Mem(ov_reg_Mem)
+);
+//---------------------Mux_Mem_Alu--------------------
+
+//---------------------Control_Unit--------------------
+	wire Funct3,
+	wire ForceJump,
+	wire Branch,
+	wire Jump_PC,
+	wire JumpRD,
+	wire Mem_To_Reg,
+	wire Mem_Write,
+	wire Mem_Read,
+	wire ALUsrc,
+	wire LUIsrc,
+	wire AluOp,
+	wire Reg_Write,
+	
+	wire Reg_Dst
+
+module Control_Unit
+(
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iv_OpCode(ov_Data[6:0]),
+	.Funct3(Funct3),
+	.ForceJump(ForceJump),
+	.Branch(Branch),
+	.Jump_PC(Jump_PC),
+	.JumpRD(JumpRD),
+	.Mem_To_Reg(Mem_To_Reg),
+	.Mem_Write(Mem_Write),
+	.Mem_Read(Mem_Read),
+	.ALUsrc(ALUsrc),
+	.LUIsrc(LUIsrc),
+	.AluOp(AluOp),
+	.Reg_Write(Reg_Write),
+	
+	.Reg_Dst(Reg_Dst)
+);
+//---------------------Control_Unit-------------------

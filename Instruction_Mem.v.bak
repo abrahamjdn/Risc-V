@@ -1,0 +1,26 @@
+module Instruction_Mem(
+    input           i_Clk,
+    input   [31:0]  iv_Address, //Corrimiento a la entrada 4 a 1
+    input   [31:0]   iv_Data,
+    output 	[31:0]		  ov_Data
+);
+
+reg [31:0]   rv_Mem [2047:0];
+reg [31:0]   rv_Data;
+assign ov_Data = rv_Data;
+initial
+begin
+    $readmemh("ROMMemInit.txt",rv_Mem,0,2047);
+end
+always @(posedge i_Clk)
+begin
+    if (iWE)
+    begin
+        rv_Mem[iv_Address]    <=  iv_Data;
+    end
+	 else if(i_R)
+	 begin
+		rv_Data  <=  rv_Mem[iv_Address];    
+	end
+end
+endmodule 

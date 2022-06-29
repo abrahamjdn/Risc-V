@@ -1,0 +1,44 @@
+module Alu_Control
+#(parameter )
+
+(
+	input i_Clk,
+	input i_Rst,
+	input i_Enb,
+	input[3:0] iv_Alu_opcode,  // Bits 6,5,4 y 2 del Opcode
+	input i_Bit_30,				//Bit 30 de la instruccion
+	input [3:0] iv_funct3,  //Bits 14:12 de las instrucciones
+	output [4:0] ov_AluOp
+
+);
+
+reg [4:0] ov_AluOp_Q;
+reg [4:0] ov_AluOp_D;
+
+assign ov_AluOp = ov_AluOp_Q;
+always@(posedge i_Clk or posedge i_Rst)
+begin
+	if(i_Rst)
+	begin
+		ov_AluOp_Q <= 0;
+	end
+	else if(i_Enb)
+	begin
+		ov_AluOp_Q <= ov_AluOp_D;
+	end
+	else
+	begin
+		ov_AluOp_Q <= ov_AluOp_Q;
+	end
+end
+
+always@*
+begin
+	casex({iv_Alu_opcode,i_Bit_30,iv_funct3})
+		8'b0110_0_000|8'b0010_x_000: ov_AluOp_D = 5'b0_0000; //ADD|ADDI
+		8'b0110_0_000: ov_AluOp_D = 5'b0_0000; //ADD
+	
+	endcase
+end
+
+endmodule 

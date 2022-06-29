@@ -1,0 +1,49 @@
+module Width_Word_IL (
+	input i_Clk,
+	input i_Rst,
+	input i_Enb,
+	input [31:0] iv_Data_Word,
+	input[3:0] iv_Alu_opcode,  // Bits 6,5,4 y 2 del Opcode
+	input [2:0] iv_funct3,  //Bits 14:12 de las instrucciones
+	output reg [31:0] ov_Data_Word,
+
+
+);
+
+reg [31:0] ov_Data_Word_Q;
+reg [31:0] ov_Data_Word_D;
+
+assign ov_Data_Word = ov_Data_Word_Q;
+always@(posedge i_Clk or posedge i_Rst)
+begin
+	if(i_Rst)
+	begin
+		ov_Data_Word_Q <= 0;
+	end
+	else if(i_Enb)
+	begin
+		ov_Data_Word_Q <= ov_Data_Word_D;
+	end
+	else
+	begin
+		ov_Data_Word_Q <= ov_Data_Word_Q;
+	end
+end
+
+always@*
+begin
+	case({iv_Alu_opcode,iv_funct3})
+	begin
+		7'b0000_000: ov_Data_Word = iv_Data_Word[7]?{24'hFF_FF_FF,iv_Data_Word[7:0]}:{24'b0,iv_Data_Word[7:0]}; //lb
+		7'b0000_001: ov_Data_Word = iv_Data_Word[15]?{16'hFF_FF,iv_Data_Word[15:0]}:{16'b0,iv_Data_Word[15:0]};//lh
+		7'b0000_001: ov_Data_Word = iv_Data_Word;		 //lw
+		7'b0000_100: ov_Data_Word = iv_Data_Word[7:0]; //lbu
+		7'b0000_101: ov_Data_Word = iv_Data_Word[15:0];//lh
+		default ov_Data_Word = iv_Data_Word;
+	end
+
+end
+
+
+
+endmodule 

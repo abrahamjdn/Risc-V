@@ -1,0 +1,42 @@
+module ADD_4(
+	input i_Clk,
+	input i_Rst,
+	input i_Enb,
+	input [31:0] iv_Dir,
+	output [31:0] ov_Dir
+);
+
+reg [31:0] ov_Dir_Q;
+reg [31:0] ov_Dir_D;
+
+assign ov_Dir = ov_Dir_Q;
+
+always@(posedge i_Clk or posedge i_Rst)
+begin
+	if(i_Rst)
+	begin
+		ov_Dir_Q <= 0;
+	end
+	else if(i_Enb)
+	begin
+		ov_Dir_Q <= ov_Dir_D;
+	end
+	else
+	begin
+		ov_Dir_Q <= ov_Dir_Q;
+	end
+end
+
+always@*
+begin
+	if(ov_Dir_Q > 13'b8_188)
+	begin
+		ov_Dir_D = 0;
+	end
+	else
+	begin
+		ov_Dir_D = ov_Dir_D + 2'd4;
+	end
+end
+
+endmodule 

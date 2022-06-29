@@ -1,0 +1,164 @@
+Flow report for Risk_V
+Wed Aug 19 10:15:07 2020
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Wed Aug 19 10:15:07 2020       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; Risk_V                                      ;
+; Top-level Entity Name              ; Top_Module                                  ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE115F23C7                               ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 3                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 08/19/2020 10:14:56 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Risk_V              ;
++-------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                    ;
++--------------------------------------+----------------------------------------+---------------+-------------+-----------------------+
+; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id            ;
++--------------------------------------+----------------------------------------+---------------+-------------+-----------------------+
+; COMPILER_SIGNATURE_ID                ; 49410867664488.159785009618932         ; --            ; --          ; --                    ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Bench_Jump_Ctr        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Alu_Control_Bench     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; register_file_Bench   ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; PC_Bench              ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ADD_imm_Bench         ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; sign_ext_Bench        ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Mux_Bench             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Instruction_Mem_Bench ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ADD_4_Bench           ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Top_Module_Bench      ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; sign_ext_Bench                         ; --            ; --          ; eda_simulation        ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation        ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --                    ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_FILE                  ; Bench_Jump_Ctr.v                       ; --            ; --          ; Bench_Jump_Ctr        ;
+; EDA_TEST_BENCH_FILE                  ; Alu_Control_Bench.v                    ; --            ; --          ; Alu_Control_Bench     ;
+; EDA_TEST_BENCH_FILE                  ; register_file_Bench.v                  ; --            ; --          ; register_file_Bench   ;
+; EDA_TEST_BENCH_FILE                  ; PC_Bench.v                             ; --            ; --          ; PC_Bench              ;
+; EDA_TEST_BENCH_FILE                  ; ADD_imm_Bench.v                        ; --            ; --          ; ADD_imm_Bench         ;
+; EDA_TEST_BENCH_FILE                  ; sign_ext_Bench.v                       ; --            ; --          ; sign_ext_Bench        ;
+; EDA_TEST_BENCH_FILE                  ; Mux_Bench.v                            ; --            ; --          ; Mux_Bench             ;
+; EDA_TEST_BENCH_FILE                  ; Instruction_Mem_Bench.v                ; --            ; --          ; Instruction_Mem_Bench ;
+; EDA_TEST_BENCH_FILE                  ; ADD_4_Bench.v                          ; --            ; --          ; ADD_4_Bench           ;
+; EDA_TEST_BENCH_FILE                  ; Top_Module_Bench.v                     ; --            ; --          ; Top_Module_Bench      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Bench_Jump_Ctr                         ; --            ; --          ; Bench_Jump_Ctr        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Alu_Control_Bench                      ; --            ; --          ; Alu_Control_Bench     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; register_file_Bench                    ; --            ; --          ; register_file_Bench   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; PC_Bench                               ; --            ; --          ; PC_Bench              ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ADD_imm_Bench                          ; --            ; --          ; ADD_imm_Bench         ;
+; EDA_TEST_BENCH_MODULE_NAME           ; sign_ext_Bench                         ; --            ; --          ; sign_ext_Bench        ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Mux_Bench                              ; --            ; --          ; Mux_Bench             ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Instruction_Mem_Bench                  ; --            ; --          ; Instruction_Mem_Bench ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ADD_4_Bench                            ; --            ; --          ; ADD_4_Bench           ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Top_Module_Bench                       ; --            ; --          ; Top_Module_Bench      ;
+; EDA_TEST_BENCH_NAME                  ; PC_Bench                               ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; Instruction_Mem_Bench                  ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; Mux_Bench                              ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; register_file_Bench                    ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; sign_ext_Bench                         ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; Alu_Control_Bench                      ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; ADD_4_Bench                            ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; ADD_imm_Bench                          ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; Top_Module_Bench                       ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_NAME                  ; Bench_Jump_Ctr                         ; --            ; --          ; eda_simulation        ;
+; EDA_TIME_SCALE                       ; 1 ps                                   ; --            ; --          ; eda_simulation        ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --                    ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --                    ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                   ; --            ; --          ; --                    ;
+; NUM_PARALLEL_PROCESSORS              ; 12                                     ; --            ; --          ; --                    ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; Top_Module  ; Top                   ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; Top_Module  ; Top                   ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; Top_Module  ; Top                   ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                    ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                    ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --                    ;
+; TOP_LEVEL_ENTITY                     ; Top_Module                             ; Risk_V        ; --          ; --                    ;
++--------------------------------------+----------------------------------------+---------------+-------------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4713 MB             ; 00:00:29                           ;
+; Total                ; 00:00:11     ; --                      ; --                  ; 00:00:29                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-6A0EIIQ  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Risk_V -c Risk_V
+
+
+

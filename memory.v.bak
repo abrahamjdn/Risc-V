@@ -1,0 +1,29 @@
+module memory (
+    input           i_Clk,
+    input   [9:0]  iv_Address,
+	 input			  i_R,
+    input           iWE,
+    input   [31:0]   iv_Data,
+    output 	[31:0]	 ov_Data
+);
+
+reg [31:0]   rv_Mem [1023:0];
+reg [31:0]   rv_Data;
+assign ov_Data = rv_Data;
+initial
+begin
+    $readmemh("ROMMemInit.txt",rv_Mem,0,1023);
+end
+
+always @( posedge i_Clk )
+begin
+    if ( iWE )
+    begin
+        rv_Mem[iv_Address]    <=  iv_Data;
+    end
+	 else if(i_R)
+	 begin
+		rv_Data  <=  rv_Mem[iv_Address];    
+	end
+end
+endmodule 

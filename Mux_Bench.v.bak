@@ -1,0 +1,32 @@
+module Mux_Bench();
+
+//-------------------------- Mux Instruction -----------------------------------------------
+	reg [4:0] iv_1;
+	reg [4:0] iv_2;
+	reg i_selector;
+	wire [4:0] ov_1;
+
+module Mux_inst(
+	.iv_reg_20_to_16 (iv_1),
+	.iv_reg_15_to_11 (iv_2),
+	.i_selector (i_selector),
+	.ov_reg_inst (ov_1)
+);
+
+//-------------------------- Mux Instruction -----------------------------------------------
+
+
+
+initial
+begin
+	iv_1 = 1;
+	iv_2 = 2;
+	always
+	begin
+		i_selector = ~i_selector;
+	end
+end
+
+
+
+endmodule 

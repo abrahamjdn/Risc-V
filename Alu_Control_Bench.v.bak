@@ -1,0 +1,24 @@
+module Alu_Control_Bench();
+
+	reg i_Clk;
+	reg i_Rst;
+	reg i_Enb;
+	reg[3:0] iv_Alu_opcode;  // Bits 6;5;4 y 2 del Opcode
+	reg i_Bit_30;				//Bit 30 de la instruccion
+	reg [3:0] iv_funct3;  //Bits 14:12 de las instrucciones
+	wire [4:0] ov_AluOp;
+
+
+Alu_Control Alu_Control(
+	.i_Clk(i_Clk),
+	.i_Rst(i_Rst),
+	.i_Enb(i_Enb),
+	.iv_Alu_opcode(iv_Alu_opcode),  // Bits 6(),5(),4 y 2 del Opcode
+	.i_Bit_30(i_Bit_30),				//Bit 30 de la instruccion
+	.iv_funct3(iv_funct3),  //Bits 14:12 de las instrucciones
+	.ov_AluOp (ov_AluOp)
+
+);
+
+
+endmodule 
